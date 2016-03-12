@@ -1,4 +1,7 @@
-# karma-jasmine-html-reporter
+# karma-jasmine-html-reporter-sourcemaps
+forked from [taras42/karma-jasmine-html-reporter](https://github.com/taras42/karma-jasmine-html-reporter)
+
+this is currently a work in progress.
 
 > Reporter that dynamically shows tests results at debug.html page.
 > Jasmine 1.3 is not supported.
