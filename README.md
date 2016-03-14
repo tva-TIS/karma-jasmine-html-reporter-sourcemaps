@@ -1,9 +1,14 @@
 # karma-jasmine-html-reporter-sourcemaps
-forked from [taras42/karma-jasmine-html-reporter](https://github.com/taras42/karma-jasmine-html-reporter)
+Forked from [taras42/karma-jasmine-html-reporter](https://github.com/taras42/karma-jasmine-html-reporter)
+This fork brought to you by an issue on jasmine: [Feature Request: Sourcemap support](https://github.com/jasmine/jasmine/issues/491)
+Thanks to 
+* [@taras42](https://github.com/taras42) for the Fork. 
+* [Guntars Ašmanis](https://gist.github.com/guncha) for the [idea/insperation/implentation](https://gist.github.com/guncha/f45ceef6d483c384290a)
+* [James Salter](https://github.com/novocaine) for [sourcemapped-stacktrace](https://github.com/novocaine/sourcemapped-stacktrace)
 
 ### This is currently a work in progress.
 
-> Reporter that dynamically shows tests results at debug.html page.
+> Reporter that dynamically displays tests results at debug.html page, with source map support.
 > Jasmine 1.3 is not supported.
 
 ![alt tag](https://raw.github.com/taras42/karma-jasmine-html-reporter/master/screenshots/reporter_1.png)
