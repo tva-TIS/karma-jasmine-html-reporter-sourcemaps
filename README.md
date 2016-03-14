@@ -1,7 +1,7 @@
 # karma-jasmine-html-reporter-sourcemaps
 forked from [taras42/karma-jasmine-html-reporter](https://github.com/taras42/karma-jasmine-html-reporter)
 
-this is currently a work in progress.
+### This is currently a work in progress.
 
 > Reporter that dynamically shows tests results at debug.html page.
 > Jasmine 1.3 is not supported.
@@ -14,32 +14,46 @@ You can also run describe block, or single test.
 
 ## Installation
 
-The easiest way is to keep `karma-jasmine-html-reporter` as a devDependency in your `package.json`.
+The easiest way is to keep `karma-jasmine-html-reporter-sourcemaps` as a devDependency in your `package.json`.
 ```json
 {
   "devDependencies": {
     "karma": "~0.10",
-    "karma-jasmine-html-reporter": "~0.1"
+    "karma-jasmine-html-reporter-sourcemaps": "~0.1"
   }
 }
 ```
 
 You can simple do it by:
 ```bash
-npm install karma-jasmine-html-reporter --save-dev
+npm install karma-jasmine-html-reporter-sourcemaps --save-dev
 ```
 
 ## Configuration
+see [example](https://github.com/kshanafelt/karma-jasmine-html-reporter-sourcemaps-example/tree/release/inline-sourcemap)
+
 ```js
 // karma.conf.js
 module.exports = function(config) {
   config.set({
-
-    reporters: ['kjhtml']
+    frameworks: ['jasmine'],
+    preprocessors: {
+            // add webpack as preprocessor
+            'test/*_test.js': ['webpack', 'sourcemap'],
+            'test/**/*_test.js': ['webpack', 'sourcemap']
+     },
+    reporters: ['karma-jasmine-html-sourcemaps']
 
   });
 };
 ```
+Currently only inline-source-maps are supported.
+
+```js
+// webpack.config.js
+module.exports = { 
+    devtool: 'inline-source-map' 
+};
 
 You can pass list of reporters as a CLI argument too:
 ```bash
