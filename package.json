@@ -30,7 +30,7 @@
     }
    ],
   "bugs": {
-      "url": "https://github.com/kshanafelt/karma-jasmine-html-reporter-sourcemaps/issues"
+    "url": "https://github.com/kshanafelt/karma-jasmine-html-reporter-sourcemaps/issues"
   },
   "dependencies": {
     "karma-jasmine": "^1.0.2",
