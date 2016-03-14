@@ -1,24 +1,31 @@
 {
-  "name": "karma-jasmine-html-reporter",
-  "version": "0.2.0",
-  "description": "A Karma plugin. Dynamically displays tests results at debug.html page",
-  "main": "./src/index.js",
+  "name": "karma-jasmine-html-reporter-sourcemaps",
+  "version": "0.1.0",
+  "description": "A Karma/jasmine plugin. Dynamically displays tests results at debug.html page, with source map support",
+  "author": "Kyle Shanafelt <kyle.shanfelt@outlook.com>",
+  "license": "MIT",
   "keywords": [
     "karma-plugin",
     "karma-reporter",
     "html"
   ],
+  "main": "./src/index.js",
+  "readmeFilename": "README.md",
   "repository": {
+    "type": "git",
     "url": "https://github.com/taras42/karma-jasmine-html-reporter"
   },
-  "author": "",
+  "bugs": {
+      "url": "https://github.com/taras42/karma-jasmine-html-reporter/issues"
+  },
   "dependencies": {
-  	"karma-jasmine": "~0.2"
+    "karma-jasmine": "~0.2",
+    "path": "^0.12.7"
   },
   "peerDependencies": {
     "karma": ">=0.9"
   },
-  "license": "MIT",
-  "devDependencies": {},
-  "readmeFilename": "README.md"
+  "devDependencies": {
+    "sourcemapped-stacktrace": "^1.0.1"
+  }
 }
