@@ -11,11 +11,11 @@ Thanks to
 > Reporter that dynamically displays tests results at debug.html page, with source map support.
 > Jasmine 1.3 is not supported.
 
-![alt tag](https://raw.github.com/taras42/karma-jasmine-html-reporter/master/screenshots/reporter_1.png)
+![alt tag](https://raw.github.com/kshanafelt/karma-jasmine-html-reporter-sourcemap/master/screenshots/reporter_1.png)
 
 You can also run describe block, or single test.
 
-![alt tag](https://raw.github.com/taras42/karma-jasmine-html-reporter/master/screenshots/reporter_2.png)
+![alt tag](https://raw.github.com/kshanafelt/karma-jasmine-html-reporter-sourcemap/master/screenshots/reporter_2.png)
 
 ## Installation
 
@@ -62,5 +62,5 @@ module.exports = {
 
 You can pass list of reporters as a CLI argument too:
 ```bash
-karma start --reporters kjhtml
+karma start --reporters karma-jasmine-html-sourcemaps
 ```
