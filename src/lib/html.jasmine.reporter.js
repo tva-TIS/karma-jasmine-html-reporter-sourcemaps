@@ -132,6 +132,24 @@ jasmineRequire.HtmlReporter = function(j$) {
                 pendingSpecCount++;
             }
         };
+        
+    //        /*
+    // *   Will transform the stack traces using @novocaine's sourcemapped-stacktrace
+    // *   Thanks to @guncha and @novocaine
+    // *   https://github.com/novocaine/sourcemapped-stacktrace
+    // *   https://gist.github.com/guncha/f45ceef6d483c384290a
+    // */
+    // this.jasmineDone: function() {
+    //         var traces = document.querySelectorAll(".jasmine-stack-trace")
+    //         for(var i = 0; i < traces.length; i++) {
+    //             (function(node){
+    //                 sourceMappedStackTrace.mapStackTrace(node.textContent, function(stack) {
+    //                     node.textContent = node.previousSibling.textContent + "\n" + stack.join("\n")
+    //                 })
+    //             })(traces[i])
+    //         }
+    //     }
+    // }
 
         this.jasmineDone = function() {
             var specSuiteId = "";

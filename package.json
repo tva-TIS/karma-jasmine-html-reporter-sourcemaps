@@ -1,5 +1,5 @@
 {
-  "name": "karma-jasmine-html-reporter",
+  "name": "karma-jasmine-html-reporter-sourcemaps",
   "version": "0.2.2",
   "description": "A Karma plugin. Dynamically displays tests results at debug.html page",
   "main": "./src/index.js",
@@ -27,12 +27,15 @@
     }
    ],
   "dependencies": {
-  	"karma-jasmine": "^1.0.2"
+    "karma-jasmine": "^1.0.2",
+    "path": "^0.12.7"
   },
   "peerDependencies": {
     "karma": ">=0.9"
   },
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "sourcemapped-stacktrace": "^1.0.1"
+  },
   "readmeFilename": "README.md"
 }

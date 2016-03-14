@@ -14,6 +14,8 @@ var initReporter = function(files,  baseReporterDecorator) {
     }
   });
 
+  
+  files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/lib/webpacked-sourcemapped-stacktrace.js'));
   files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/css/jasmine.css'));
   files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/lib/html.jasmine.reporter.js'));
   files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/lib/adapter.js'));
@@ -22,5 +24,5 @@ var initReporter = function(files,  baseReporterDecorator) {
 initReporter.$inject = ['config.files',  'baseReporterDecorator'];
 
 module.exports = {
-  'reporter:kjhtml': ['type', initReporter]
+  'reporter:karma-jasmine-html-sourcemaps': ['type', initReporter]
 };

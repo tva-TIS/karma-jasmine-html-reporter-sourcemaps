@@ -29,10 +29,29 @@
      */
     var htmlReporter = new jasmine.HtmlReporter({
         env: env,
-        onRaiseExceptionsClick: function() { queryString.setParam("catch", !env.catchingExceptions()); },
-        getContainer: function() { return document.body; },
-        createElement: function() { return document.createElement.apply(document, arguments); },
-        createTextNode: function() { return document.createTextNode.apply(document, arguments); },
+        onRaiseExceptionsClick: function() { 
+            queryString.setParam("catch", !env.catchingExceptions()); 
+        },
+        getContainer: function() { 
+            return document.body; 
+        },
+        createElement: function() { 
+            return document.createElement.apply(document, arguments); 
+        },
+        createTextNode: function() {
+            return document.createTextNode.apply(document, arguments); 
+        },
+
+        jasmineDone: function() {
+            var traces = document.querySelectorAll(".jasmine-stack-trace")
+            for(var i = 0; i < traces.length; i++) {
+                (function(node){
+                    window.sourceMappedStackTrace.mapStackTrace(node.textContent, function(stack) {
+                    node.textContent = node.previousSibling.textContent + "\n" + stack.join("\n")
+                })
+                })(traces[i])
+            }
+        },
         timer: new jasmine.Timer()
     });
 
@@ -41,6 +60,25 @@
      */
 
     env.addReporter(htmlReporter);
+    
+   /*
+    *   Will transform the stack traces using @novocaine's sourcemapped-stacktrace
+    *   Thanks to @guncha and @novocaine
+    *   https://github.com/novocaine/sourcemapped-stacktrace
+    *   https://gist.github.com/guncha/f45ceef6d483c384290a
+    */
+    env.addReporter({
+        jasmineDone: function() {
+            var traces = document.querySelectorAll(".stack-trace")
+            for(var i = 0; i < traces.length; i++) {
+                (function(node){
+                    sourceMappedStackTrace.mapStackTrace(node.textContent, function(stack) {
+                        node.textContent = node.previousSibling.textContent + "\n" + stack.join("\n")
+                    })
+                })(traces[i])
+            }
+        }
+    });
 
     /**
      * Filter which specs will be run by matching the start of the full name against the `spec` query param.
