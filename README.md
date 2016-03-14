@@ -11,11 +11,11 @@ Thanks to
 > Reporter that dynamically displays tests results at debug.html page, with source map support.
 > Jasmine 1.3 is not supported.
 
-![alt tag](https://raw.github.com/kshanafelt/karma-jasmine-html-reporter-sourcemap/master/screenshots/reporter_1.png)
+![alt tag](https://raw.githubusercontent.com/kshanafelt/karma-jasmine-html-reporter-sourcemaps/master/screenshots/reporter_1.png)
 
 You can also run describe block, or single test.
 
-![alt tag](https://raw.github.com/kshanafelt/karma-jasmine-html-reporter-sourcemap/master/screenshots/reporter_2.png)
+![alt tag](https://raw.githubusercontent.com//kshanafelt/karma-jasmine-html-reporter-sourcemap/master/screenshots/reporter_2.png)
 
 ## Installation
 
@@ -64,3 +64,9 @@ You can pass list of reporters as a CLI argument too:
 ```bash
 karma start --reporters karma-jasmine-html-sourcemaps
 ```
+## Known bugs:
+* Currently only works with `inline-source-map`
+* When using `source-map-loader`, it has a bug, where if more then one files gets preprocessed with a source map, you don't get any source maps from the preprocessors (you still get all of the source maps created prior to karma though).
+** Fixes: 
+1. webpack before calling karma
+2. Only preprocess 1 file for webpack. Utilizing karma-webpack's [Alternative usage](https://github.com/webpack/karma-webpack#alternative-usage), works well for this.
