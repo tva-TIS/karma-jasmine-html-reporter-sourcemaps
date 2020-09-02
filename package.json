@@ -1,6 +1,6 @@
 {
   "name": "karma-jasmine-html-reporter-sourcemaps",
-  "version": "0.1.1",
+  "version": "0.2.2",
   "description": "A Karma/jasmine plugin. Dynamically displays tests results at debug.html page, with source map support",
   "author": "Kyle Shanafelt <kyle.shanfelt@outlook.com>",
   "license": "MIT",
@@ -15,11 +15,25 @@
     "type": "git",
     "url": "https://github.com/kshanafelt/karma-jasmine-html-reporter-sourcemaps"
   },
+  "contributors": [
+  	{
+      "name": "Yudha Setiawan",
+      "url": "https://github.com/yudhasetiawan"
+   	},
+   	{
+      "name": "Brian Thompson",
+      "url": "https://github.com/dachibro"
+   	},
+    {
+      "name": "protazy",
+      "url": "https://github.com/protazy"
+    }
+   ],
   "bugs": {
     "url": "https://github.com/kshanafelt/karma-jasmine-html-reporter-sourcemaps/issues"
   },
   "dependencies": {
-    "karma-jasmine": "~0.2",
+    "karma-jasmine": "^1.0.2",
     "path": "^0.12.7"
   },
   "peerDependencies": {

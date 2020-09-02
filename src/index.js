@@ -1,20 +1,24 @@
-var path = require('path');
-
+var JASMINE_CORE_PATTERN = /([\\/]karma-jasmine[\\/])/i;
 var createPattern = function(path) {
   return {pattern: path, included: true, served: true, watched: false};
 };
 
 var initReporter = function(files,  baseReporterDecorator) {
+  var jasmineCoreIndex = 0;
 
   baseReporterDecorator(this);
+
+  files.forEach(function(file, index) {
+    if (JASMINE_CORE_PATTERN.test(file.pattern)) {
+      jasmineCoreIndex = index;
+    }
+  });
+
   
-  files.unshift(createPattern(__dirname + '/lib/adapter.js'));
-  
-  // webpacked from "sourcemapped-stacktrace": "^1.0.1"
-  // todo: add job to reproduce this file from "sourcemapped-stacktrace"
-  files.unshift(createPattern(__dirname + '/lib/webpacked-sourcemapped-stacktrace.js'));
-  files.unshift(createPattern(__dirname + '/lib/html.jasmine.reporter.js'));
-  files.unshift(createPattern(__dirname + '/css/jasmine.css'));
+  files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/lib/webpacked-sourcemapped-stacktrace.js'));
+  files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/css/jasmine.css'));
+  files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/lib/html.jasmine.reporter.js'));
+  files.splice(++jasmineCoreIndex, 0, createPattern(__dirname + '/lib/adapter.js'));
 };
 
 initReporter.$inject = ['config.files',  'baseReporterDecorator'];
